@@ -7,6 +7,13 @@ def graph():
     from student_code import VersatileDigraph
     return VersatileDigraph()
 
-def test_add_edge(graph):
-    graph.add_edge("A", "B", edge_name="edge1", edge_weight=5)
-    assert graph.get_edge_weight("A", "B") == 5
+def test_successors(graph):
+    '''Test successors'''
+    graph.add_node("A", 10)
+    graph.add_node("B",20)
+    graph.add_node("C",30)
+    graph.add_edge("A","B")
+    graph.add_edge("C","B")
+    succs=graph.successors("A")
+    assert succs == ["B"]
+
